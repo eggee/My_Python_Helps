@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20160314 13:06:13.719" generator="Robot 2.9 (Python 2.7.10 on win32)">
+<suite source="C:\Development\Ta5K Telnet\RIDE_Telnet\TA5K_Telnet.robot" id="s1" name="TA5K Telnet">
+<test id="s1-t1" name="login">
+<kw name="Open Connection" library="TautTelnet">
+<doc>Opens a new Telnet connection to the given host and port.</doc>
+<arguments>
+<arg>${IP_Address}</arg>
+</arguments>
+<msg timestamp="20160314 13:06:13.787" level="INFO">Opening connection to 10.13.138.101:23 with prompt: None</msg>
+<status status="PASS" endtime="20160314 13:06:13.807" starttime="20160314 13:06:13.787"></status>
+</kw>
+<kw name="Login" library="TautTelnet">
+<doc>Logs in to the Telnet server with the given user information.</doc>
+<arguments>
+<arg>${LoginUserName}</arg>
+<arg>${LoginPassword}</arg>
+<arg>Username:</arg>
+<arg>Password</arg>
+</arguments>
+<msg timestamp="20160314 13:06:15.155" level="INFO">User Access Verification
+
+Username:ADMIN
+Password:
+
+Last Login Date      : Mar 14 2016 11:29:38 
+Last Login Type      : IP Session(CLI) 
+Login Failures       : 0 (Since Last Login)
+                     : 0 (Total for Account)
+BBDLC-N001&gt;</msg>
+<status status="PASS" endtime="20160314 13:06:15.155" starttime="20160314 13:06:13.808"></status>
+</kw>
+<kw name="Set Prompt" library="TautTelnet">
+<doc>Sets the prompt used by `Read Until Prompt` and `Login` in the current connection.</doc>
+<arguments>
+<arg>B</arg>
+</arguments>
+<status status="PASS" endtime="20160314 13:06:15.156" starttime="20160314 13:06:15.156"></status>
+</kw>
+<kw name="Execute Command" library="TautTelnet">
+<doc>Executes the given ``command`` and reads, logs, and returns everything until the prompt.</doc>
+<arguments>
+<arg>term len 0</arg>
+</arguments>
+<msg timestamp="20160314 13:06:15.189" level="INFO">term len 0</msg>
+<msg timestamp="20160314 13:06:15.293" level="INFO">B</msg>
+<status status="PASS" endtime="20160314 13:06:15.293" starttime="20160314 13:06:15.157"></status>
+</kw>
+<doc>*TestCase* User should be able to login to a Telnet Session</doc>
+<status status="PASS" endtime="20160314 13:06:15.294" critical="yes" starttime="20160314 13:06:13.786"></status>
+</test>
+<test id="s1-t2" name="show_auto_shelf">
+<kw name="Execute Command" library="TautTelnet">
+<doc>Executes the given ``command`` and reads, logs, and returns everything until the prompt.</doc>
+<arguments>
+<arg>sho auto shelf</arg>
+</arguments>
+<msg timestamp="20160314 13:06:15.333" level="INFO">BDLC-N001&gt;sho auto shelf</msg>
+<msg timestamp="20160314 13:06:15.438" level="INFO">Auto Upgrade Config Filename : TA5000-PRE95D0015.auc
+ Auto Upgrade Mode            : Auto
+ Use SCR (defer reset)        : YES
+ System Release               : PRE95.D0015
+ Auto Upgrade Retries         : 5
+ Slot (SCM, 00:00:00): Idle, 1187010G2 firmware is current (ML00.006.251)
+ Slot (1  , 00:00:00): Idle, 1187552G1 firmware is current (PRE95.D0015)
+ Slot (2  , 00:00:00): Idle, 1187552G1 firmware is current (PRE95.D0015)
+ Slot (7  , 00:00:00): Idle, 1187503F1 firmware is current (PRE95.D0015)
+ Slot (9  , 00:00:00): Idle, 1187520E1 firmware is current (G40.0003)
+ Slot (10 , 00:00:00): Idle, 1187520E1 firmware is current (G40.0003)
+ Slot (11 , 00:00:00): Idle, 1187100L2 firmware is current (PRE95.D0015)
+ Slot (15 , 00:00:00): Idle, 1187800L1 firmware is current (PRE95.D0015)
+ Slot (16 , 00:00:00): Idle, 1187800L1 firmware is current (PRE95.D0015)
+ Slot (17 , 00:00:00): Idle, 1187801L1 firmware is current (PRE95.D0015)
+ Slot (19 , 00:00:00): Idle, 1187800L1 firmware is current (PRE95.D0015)
+ Slot (20 , 00:00:00): Idle, 1187800L1 firmware is current (PRE95.D0015)
+ Slot (21 , 00:00:00): Idle, 1187800L1 firmware is current (PRE95.D0015)
+ Slot (22 , 00:00:00): Idle, 1187800L1 firmware is current (PRE95.D0015)
+ Slot (F  , 00:00:00): Idle, 1187080L1 ignored (A02.03)
+ Slot (A  , 00:00:00): Idle, 1187030G1 firmware is current (PRE95.D0015)
+ Slot (B</msg>
+<status status="PASS" endtime="20160314 13:06:15.438" starttime="20160314 13:06:15.296"></status>
+</kw>
+<status status="PASS" endtime="20160314 13:06:15.439" critical="yes" starttime="20160314 13:06:15.295"></status>
+</test>
+<test id="s1-t3" name="logout">
+<kw name="Close Connection" library="TautTelnet">
+<doc>Closes the current Telnet connection.</doc>
+<msg timestamp="20160314 13:06:15.441" level="INFO">, 00:00:00): Idle,</msg>
+<status status="PASS" endtime="20160314 13:06:15.441" starttime="20160314 13:06:15.440"></status>
+</kw>
+<status status="PASS" endtime="20160314 13:06:15.441" critical="yes" starttime="20160314 13:06:15.440"></status>
+</test>
+<status status="PASS" endtime="20160314 13:06:15.442" starttime="20160314 13:06:13.722"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="3">Critical Tests</stat>
+<stat fail="0" pass="3">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="TA5K Telnet" pass="3">TA5K Telnet</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20160314 13:06:13.784" level="ERROR">Error in file 'C:\Development\Ta5K Telnet\RIDE_Telnet\TA5K_Telnet.robot': Importing test library 'C:\Workspace\TautCore\Libraries\Platform\TA5K\Ta5k.py' failed: IOError: [Errno 22] Invalid argument
+Traceback (most recent call last):
+  File "C:\Workspace\TautCore\Libraries\Platform\TA5K\Ta5k.py", line 10, in &lt;module&gt;
+    Ta5kCli = imp.load_source('Ta5kCLI', os.getenv('TAUT_CORE') + '/Libraries/Command/TA5K/Ta5kCLI.py',)
+PYTHONPATH:
+  C:\Python27\lib\site-packages\pygments-2.0.2-py2.7.egg
+  \\10.21.1.164\pq-bbdlc\Robot_Libraries
+  C:\Windows\system32\python27.zip
+  C:\Python27\DLLs
+  C:\Python27\lib
+  C:\Python27\lib\plat-win
+  C:\Python27\lib\lib-tk
+  C:\Python27
+  C:\Python27\lib\site-packages
+  C:\Python27\lib\site-packages\win32
+  C:\Python27\lib\site-packages\win32\lib
+  C:\Python27\lib\site-packages\Pythonwin
+  C:\Python27\lib\site-packages\wx-2.8-msw-unicode</msg>
+</errors>
+</robot>
