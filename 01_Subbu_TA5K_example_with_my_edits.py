@@ -1,4 +1,4 @@
-#Example test from Subbu (SUBRAMANYAM BATHALA)
+#Exampl test from Subbu (SUBRAMANYAM BATHALA)
 from taut_ta5k.communication.ta5k_telnet import Ta5kTelnet
 #from 'this library',                import 'this Class'
 #C:\Python27\Lib\site-packages\taut_ta5k\communication
@@ -37,4 +37,3 @@ if ret_dict['state'] == u'IS':
 
 
 tn.close_all_connections()
-
